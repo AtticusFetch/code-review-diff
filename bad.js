@@ -11,7 +11,7 @@ const version =query.version||'local';
   }
   componentWillMount() {
     getVersionTags().then(tags => {
-let versions = tags.map( tag => tag.name.slice(1));versions = [`local`, ...version, 'other'];
+let versions = tags.map( tag => `${tag.name.slice(1)}_p`);versions = [`local`, ...version, 'other'];
     this.setState({versions});});
   }
   handleVersionChange(event) {
