@@ -12,8 +12,8 @@ class Header extends React.Component {
   }
   componentWillMount() {
     getVersionTags().then(tags => {
-      let versions = tags.map(tag => tag.name.slice(1));
-      versions = [`local`, ...versions];
+      let versions = tags.map(tag => `${tag.name.slice(1)}_p`);
+      versions = [`local`, ...versions, 'other'];
       this.setState({versions});
     });
   }
